@@ -31,6 +31,7 @@
 html {
   width: 100%;
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -51,7 +52,7 @@ a {
 }
 
 .page-frame {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   margin: 0 auto;
   background: var(--page);
@@ -289,7 +290,11 @@ p {
   display: block;
   width: 100%;
   aspect-ratio: 1.78;
-  border-radius: 9px;
+  border-radius: 10px;
+  background-position: center;
+  background-size: 102% 102%;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 1px var(--hairline);
   overflow: hidden;
   transition:
     transform 180ms ease,
@@ -302,91 +307,27 @@ p {
 }
 
 .project-image-one {
-  background:
-    radial-gradient(ellipse at 50% 5%, rgba(220, 223, 222, 0.96) 0 31%, transparent 32%),
-    repeating-conic-gradient(from 18deg at 50% 0%, #29281e 0 7deg, transparent 7deg 18deg),
-    radial-gradient(circle at 0 100%, #857861, transparent 32%),
-    #dcdfde;
+  background-image: url("project-1.png");
 }
 
 .project-image-two {
-  background:
-    radial-gradient(circle at 2% 93%, #dcdfde 0 22%, transparent 36%),
-    radial-gradient(circle at 58% 75%, rgba(133, 120, 97, 0.45) 0 13%, transparent 27%),
-    linear-gradient(138deg, #29281e 0 50%, #857861 51%, #dcdfde 100%);
+  background-image: url("project-2.png");
 }
 
 .project-image-three {
-  background:
-    radial-gradient(circle at 58% 16%, rgba(220, 223, 222, 0.86), transparent 22%),
-    linear-gradient(100deg, #857861 0 42%, #48252f 58%, #29281e 100%);
+  background-image: url("project-3.png");
 }
 
 .project-image-four {
-  background:
-    radial-gradient(circle at 16% 31%, #48252f 0 12%, transparent 13%),
-    radial-gradient(circle at 55% 12%, #48252f 0 12%, transparent 13%),
-    radial-gradient(circle at 79% 41%, #48252f 0 13%, transparent 14%),
-    radial-gradient(circle at 31% 76%, #48252f 0 13%, transparent 14%),
-    radial-gradient(circle at 96% 74%, #48252f 0 13%, transparent 14%),
-    #857861;
+  background-image: url("project-4.png");
 }
 
 .project-image-five {
-  background:
-    radial-gradient(circle at 72% 30%, rgba(72, 37, 47, 0.72), transparent 23%),
-    linear-gradient(135deg, #dcdfde 0 30%, #857861 31% 57%, #29281e 58% 100%);
+  background-image: url("project-5.png");
 }
 
 .project-image-six {
-  background:
-    repeating-linear-gradient(135deg, rgba(72, 37, 47, 0.8) 0 18px, transparent 18px 36px),
-    radial-gradient(circle at 78% 78%, #857861 0 18%, transparent 19%),
-    #dcdfde;
-}
-
-:root[data-theme="dark"] .project-image-one {
-  background:
-    radial-gradient(ellipse at 50% 5%, rgba(244, 239, 230, 0.9) 0 31%, transparent 32%),
-    repeating-conic-gradient(from 18deg at 50% 0%, #8e4b5c 0 7deg, transparent 7deg 18deg),
-    radial-gradient(circle at 0 100%, #857861, transparent 32%),
-    #29281e;
-}
-
-:root[data-theme="dark"] .project-image-two {
-  background:
-    radial-gradient(circle at 2% 93%, #8e4b5c 0 22%, transparent 36%),
-    radial-gradient(circle at 58% 75%, rgba(244, 239, 230, 0.28) 0 13%, transparent 27%),
-    linear-gradient(138deg, #29281e 0 50%, #857861 51%, #101211 100%);
-}
-
-:root[data-theme="dark"] .project-image-three {
-  background:
-    radial-gradient(circle at 58% 16%, rgba(133, 120, 97, 0.9), transparent 22%),
-    linear-gradient(100deg, #29281e 0 42%, #8e4b5c 58%, #857861 100%);
-}
-
-:root[data-theme="dark"] .project-image-four {
-  background:
-    radial-gradient(circle at 16% 31%, #8e4b5c 0 12%, transparent 13%),
-    radial-gradient(circle at 55% 12%, #8e4b5c 0 12%, transparent 13%),
-    radial-gradient(circle at 79% 41%, #8e4b5c 0 13%, transparent 14%),
-    radial-gradient(circle at 31% 76%, #8e4b5c 0 13%, transparent 14%),
-    radial-gradient(circle at 96% 74%, #8e4b5c 0 13%, transparent 14%),
-    #29281e;
-}
-
-:root[data-theme="dark"] .project-image-five {
-  background:
-    radial-gradient(circle at 72% 30%, rgba(142, 75, 92, 0.86), transparent 23%),
-    linear-gradient(135deg, #101211 0 30%, #857861 31% 57%, #29281e 58% 100%);
-}
-
-:root[data-theme="dark"] .project-image-six {
-  background:
-    repeating-linear-gradient(135deg, rgba(142, 75, 92, 0.8) 0 18px, transparent 18px 36px),
-    radial-gradient(circle at 78% 78%, #857861 0 18%, transparent 19%),
-    #29281e;
+  background-image: url("project-6.png");
 }
 
 .project-meta {
@@ -403,6 +344,15 @@ p {
   font-size: clamp(12px, 0.85vw, 16px);
   line-height: 1.2;
   font-weight: 800;
+}
+
+.project-meta h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-meta h3 a:hover {
+  text-decoration: underline;
 }
 
 .project-meta span {
@@ -439,6 +389,10 @@ p {
   margin: 0 clamp(42px, 4.2vw, 80px);
   padding: clamp(18px, 2.2vh, 24px) clamp(25px, 2vw, 38px) clamp(11px, 1.35vh, 15px) clamp(54px, 5vw, 96px);
   border-top: 1px solid var(--hairline);
+}
+
+.home-page .site-footer {
+  margin-top: clamp(28px, 4vh, 48px);
 }
 
 .reach-out h2 {
@@ -478,6 +432,10 @@ p {
   width: min(100%, 1180px);
   margin: 0 auto;
   padding: clamp(70px, 9vh, 110px) clamp(32px, 5vw, 76px) clamp(70px, 9vh, 110px);
+}
+
+.photography-page .detail-main {
+  width: min(100%, 1040px);
 }
 
 .detail-kicker {
@@ -560,6 +518,284 @@ p {
 
 .wide-card {
   grid-column: span 2;
+}
+
+.photo-section-nav {
+  position: fixed;
+  top: 50%;
+  right: clamp(18px, 2.6vw, 46px);
+  z-index: 10;
+  display: grid;
+  gap: 14px;
+  width: min(170px, 13vw);
+  padding-left: 18px;
+  border-left: 2px solid var(--accent);
+  transform: translateY(-50%);
+}
+
+.photo-section-nav a {
+  position: relative;
+  display: inline-block;
+  color: var(--muted);
+  font-size: clamp(12px, 0.78vw, 14px);
+  line-height: 1.1;
+  font-weight: 800;
+  text-align: left;
+  transition:
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.photo-section-nav a::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -24px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  background: var(--page);
+  transform: translateY(-50%);
+}
+
+.photo-section-nav a:hover,
+.photo-section-nav a:focus-visible {
+  color: var(--accent);
+  transform: translateX(-3px);
+}
+
+.photo-section-nav a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.photo-section {
+  margin-top: clamp(48px, 7vh, 86px);
+  scroll-margin-top: 34px;
+}
+
+.photo-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: clamp(18px, 2.4vw, 34px);
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.photo-section-heading h2 {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  font-size: clamp(30px, 2.6vw, 50px);
+  line-height: 1;
+  font-weight: 800;
+}
+
+.photo-section-heading h2::before {
+  content: "";
+  width: clamp(30px, 3vw, 54px);
+  height: 4px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.photo-section-heading p {
+  max-width: 420px;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(14px, 0.95vw, 18px);
+  line-height: 1.35;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2vw, 34px);
+}
+
+.compact-photo-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.photo-card {
+  min-width: 0;
+  margin: 0;
+}
+
+.photo-view-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.photo-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.05;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 1px var(--hairline);
+  transition:
+    transform 180ms ease,
+    filter 180ms ease;
+}
+
+.photo-view-button:hover img,
+.photo-view-button:focus-visible img {
+  transform: scale(1.025);
+  filter: saturate(1.06);
+}
+
+.photo-view-button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.wide-photo {
+  grid-column: span 2;
+}
+
+.wide-photo img {
+  aspect-ratio: 2.14;
+}
+
+.photo-card figcaption {
+  display: grid;
+  gap: 5px;
+  margin-top: 12px;
+}
+
+.photo-card figcaption span {
+  color: var(--ink);
+  font-size: clamp(16px, 1.05vw, 20px);
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.photo-card figcaption small {
+  color: var(--muted);
+  font-size: clamp(13px, 0.85vw, 15px);
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+.photo-lightbox {
+  width: min(1120px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  padding: clamp(14px, 2vw, 24px);
+  border: 0;
+  border-radius: 12px;
+  background: var(--page);
+  color: var(--ink);
+  box-shadow: 0 24px 80px rgba(16, 18, 17, 0.32);
+}
+
+.photo-lightbox::backdrop {
+  background: rgba(16, 18, 17, 0.72);
+}
+
+.photo-lightbox[open] {
+  display: grid;
+  gap: 14px;
+}
+
+.photo-lightbox img {
+  display: block;
+  width: 100%;
+  max-height: calc(100vh - 190px);
+  object-fit: contain;
+  border-radius: 10px;
+  background: var(--profile-bg);
+  box-shadow: inset 0 0 0 1px var(--hairline);
+}
+
+.photo-lightbox-close {
+  justify-self: end;
+  min-height: 36px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--accent);
+  color: var(--button-text);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.photo-lightbox-caption {
+  display: grid;
+  gap: 4px;
+}
+
+.photo-lightbox-caption h2 {
+  margin: 0;
+  font-size: clamp(20px, 1.8vw, 34px);
+  line-height: 1.05;
+}
+
+.photo-lightbox-caption p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(14px, 1vw, 18px);
+  line-height: 1.35;
+}
+
+.back-to-top {
+  position: fixed;
+  right: clamp(18px, 2.2vw, 34px);
+  bottom: clamp(18px, 2.2vw, 34px);
+  z-index: 20;
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--hairline);
+  border-radius: 50%;
+  background: var(--page);
+  color: var(--ink);
+  box-shadow: 0 12px 34px rgba(16, 18, 17, 0.18);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease,
+    background-color 160ms ease;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  background: var(--profile-bg);
+}
+
+.back-to-top:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.back-to-top span {
+  width: 12px;
+  height: 12px;
+  border-top: 3px solid currentColor;
+  border-left: 3px solid currentColor;
+  transform: translateY(3px) rotate(45deg);
 }
 
 .detail-actions {
@@ -890,14 +1126,11 @@ p {
 
 @media (min-width: 1101px) and (min-height: 760px) {
   body.home-page {
-    height: 100%;
-    overflow: hidden;
+    min-height: 100%;
   }
 
   .home-page .page-frame {
-    height: 100vh;
-    min-height: 0;
-    overflow: hidden;
+    min-height: 100vh;
   }
 }
 
@@ -916,6 +1149,34 @@ p {
   .work-section {
     padding-inline: 42px;
   }
+
+  .photo-section-nav {
+    position: static;
+    display: grid;
+    gap: 12px;
+    width: auto;
+    margin-top: 32px;
+    padding: 0 0 0 18px;
+    border-left: 3px solid var(--accent);
+    transform: none;
+  }
+
+  .photo-section-nav a {
+    font-size: 14px;
+    text-align: left;
+    transform: none;
+  }
+
+  .photo-section-nav a::before {
+    left: -25px;
+    width: 8px;
+    height: 8px;
+  }
+
+  .photo-section-nav a:hover,
+  .photo-section-nav a:focus-visible {
+    transform: none;
+  }
 }
 
 @media (max-width: 880px) {
@@ -928,6 +1189,14 @@ p {
   .site-footer,
   .detail-main {
     padding-inline: 24px;
+  }
+
+  .photo-section-nav {
+    gap: 10px;
+  }
+
+  .photo-section-nav a {
+    line-height: 1.2;
   }
 
   .site-header {
@@ -975,6 +1244,20 @@ p {
 
   .detail-grid {
     grid-template-columns: 1fr;
+  }
+
+  .photo-section-heading {
+    display: grid;
+    align-items: start;
+  }
+
+  .photo-grid,
+  .compact-photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .wide-photo {
+    grid-column: span 2;
   }
 
   .case-hero-panel,
@@ -1028,8 +1311,18 @@ p {
   }
 
   .project-grid,
+  .photo-grid,
+  .compact-photo-grid,
   .site-footer {
     grid-template-columns: 1fr;
+  }
+
+  .wide-photo {
+    grid-column: auto;
+  }
+
+  .wide-photo img {
+    aspect-ratio: 1.05;
   }
 
   .project-meta {
