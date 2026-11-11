@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Apply the theme before styles load to prevent a light flash on navigation.
+      (() => {
+        let theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        try {
+          const savedTheme = localStorage.getItem("portfolio-theme");
+          if (savedTheme === "dark" || savedTheme === "light") theme = savedTheme;
+        } catch {}
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
     <title>Docs Quality Assurance | Meryem Makrane Creutzer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +30,7 @@
         <a class="brand" href="index.html">Meryem Makrane Creutzer</a>
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="photography.html">Photography</a>
+          <a href="resume.html">Resume</a>
           <a href="about.html">About Me</a>
           <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
             <span class="theme-toggle-icon" aria-hidden="true"></span>
@@ -73,14 +86,14 @@
           </article>
 
           <article class="detail-card">
-            <h2>Key Improvements</h2>
+            <h2>Skills &amp; Expertise</h2>
             <ul class="detail-list">
-              <li>Centralized Docs-as-Code workflow in Azure DevOps</li>
-              <li>Ticketing linked to product backlog items</li>
-              <li>SME collaboration through wikis and pull requests</li>
-              <li>Git and Markdown version control for documentation</li>
-              <li>Reusable templates and a consistent style guide</li>
-              <li>Documentation updates aligned with product releases</li>
+              <li>Qualitative research &amp; stakeholder interviews</li>
+              <li>Feasibility analysis</li>
+              <li>Documentation process modeling</li>
+              <li>Docs-as-Code</li>
+              <li>Azure DevOps, Git &amp; Markdown</li>
+              <li>Review workflows &amp; quality assurance</li>
             </ul>
           </article>
         </section>
@@ -150,19 +163,16 @@
           </article>
         </section>
 
-        <section class="case-story-grid" aria-label="Outcome">
+        <section class="case-story-grid" aria-label="Outcomes">
           <article class="detail-card wide-card">
-            <h2>Outcome</h2>
-            <p>
-              The documentation process became the company's new standard. Version control reduced
-              fragmentation, ticketing made documentation needs visible beside feature development,
-              and pull requests introduced traceable review cycles with validation checkpoints.
-            </p>
-            <p>
-              The project also confirmed that documentation quality is deeply tied to process design:
-              good technical content needs clear ownership, collaborative review, and a workflow
-              that moves with the product.
-            </p>
+            <h2>Outcomes</h2>
+            <p>The Docs-as-Code workflow became the company’s documentation standard:</p>
+            <ul class="detail-list">
+              <li>Centralized planning, authoring, and review in Azure DevOps with Git and Markdown.</li>
+              <li>Linked documentation tickets to product backlog items and release milestones.</li>
+              <li>Introduced SME collaboration and traceable review through wikis and pull requests.</li>
+              <li>Standardized content with reusable templates, a style guide, and validation checkpoints.</li>
+            </ul>
           </article>
 
           <article class="detail-card">
@@ -176,7 +186,7 @@
 
         <section class="case-embed-grid" aria-label="Interactive project embed">
           <article class="detail-card wide-card">
-            <h2>Final Outcome</h2>
+            <h2>Project Preview</h2>
             <div class="embed-frame">
               <iframe
                 title="Research project outcome"
@@ -212,7 +222,6 @@
           <h2 id="reach-title">Reach out</h2>
           <ul>
             <li><a href="mailto:hello@example.com">Email</a></li>
-            <li><a href="https://github.com/" target="_blank" rel="noreferrer">Github</a></li>
             <li><a href="https://www.linkedin.com/in/meryem-makrane-creutzer-316495186/" target="_blank" rel="noreferrer">Linkedin</a></li>
           </ul>
         </section>

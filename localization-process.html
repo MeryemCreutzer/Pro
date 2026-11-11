@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Apply the theme before styles load to prevent a light flash on navigation.
+      (() => {
+        let theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        try {
+          const savedTheme = localStorage.getItem("portfolio-theme");
+          if (savedTheme === "dark" || savedTheme === "light") theme = savedTheme;
+        } catch {}
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
     <title>Localization Process Optimization | Meryem Makrane Creutzer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +30,7 @@
         <a class="brand" href="index.html">Meryem Makrane Creutzer</a>
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="photography.html">Photography</a>
+          <a href="resume.html">Resume</a>
           <a href="about.html">About Me</a>
           <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
             <span class="theme-toggle-icon" aria-hidden="true"></span>
@@ -78,13 +91,15 @@
           </article>
 
           <article class="detail-card">
-            <h2>Key Improvements</h2>
+            <h2>Skills &amp; Expertise</h2>
             <ul class="detail-list">
-              <li>Selected and implemented Crowdin as the localization platform</li>
-              <li>Integrated localization flow with Azure DevOps and a transit repo</li>
-              <li>Reduced translation preparation time from weeks to days</li>
-              <li>Used translation memory, machine translation, DeepL, and glossaries</li>
-              <li>Improved structural and content consistency across languages</li>
+              <li>Feasibility studies &amp; tool evaluation</li>
+              <li>Localization workflow design</li>
+              <li>Crowdin &amp; Azure DevOps integration</li>
+              <li>Git version control &amp; repository workflows</li>
+              <li>Translation memory &amp; terminology management</li>
+              <li>Multilingual quality assurance</li>
+              <li>Translator onboarding &amp; training</li>
             </ul>
           </article>
         </section>
@@ -151,20 +166,17 @@
           </article>
         </section>
 
-        <section class="case-story-grid" aria-label="Outcome">
+        <section class="case-story-grid" aria-label="Outcomes">
           <article class="detail-card wide-card">
-            <h2>Outcome</h2>
-            <p>
-              The new localization process drastically reduced time-to-translation, eliminated
-              manual duplication, and brought structure and consistency to multilingual documentation.
-              Translation accuracy and alignment with the English source material improved across
-              supported languages.
-            </p>
-            <p>
-              After studying the transit repository limitations, validating a simplified model with
-              a Git expert, and testing it, I proposed directly linking Crowdin to the main source
-              repository to further automate and simplify the localization cycle.
-            </p>
+            <h2>Outcomes</h2>
+            <p>The new workflow made multilingual documentation easier to deliver and maintain:</p>
+            <ul class="detail-list">
+              <li>Implemented Crowdin with Azure DevOps synchronization through a transit repository.</li>
+              <li>Reduced translation preparation time from weeks to days.</li>
+              <li>Introduced translation memory, DeepL, glossaries, and QA checks to support consistent translations.</li>
+              <li>Established translator onboarding and clearer workflow ownership.</li>
+              <li>Tested a simpler repository model with a Git expert and proposed a direct source connection for further automation.</li>
+            </ul>
           </article>
 
           <article class="detail-card">
@@ -191,7 +203,7 @@
             </div>
           </article>
           <article class="detail-card">
-            <h2>Final Outcome</h2>
+            <h2>Project Preview</h2>
             <div class="embed-frame">
               <iframe
                 title="Localization project outcome"
@@ -240,7 +252,6 @@
           <h2 id="reach-title">Reach out</h2>
           <ul>
             <li><a href="mailto:hello@example.com">Email</a></li>
-            <li><a href="https://github.com/" target="_blank" rel="noreferrer">Github</a></li>
             <li><a href="https://www.linkedin.com/in/meryem-makrane-creutzer-316495186/" target="_blank" rel="noreferrer">Linkedin</a></li>
           </ul>
         </section>

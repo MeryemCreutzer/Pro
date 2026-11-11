@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Apply the theme before styles load to prevent a light flash on navigation.
+      (() => {
+        let theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        try {
+          const savedTheme = localStorage.getItem("portfolio-theme");
+          if (savedTheme === "dark" || savedTheme === "light") theme = savedTheme;
+        } catch {}
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
     <title>Projects | Meryem Makrane Creutzer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +30,7 @@
         <a class="brand" href="index.html">Meryem Makrane Creutzer</a>
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="photography.html">Photography</a>
+          <a href="resume.html">Resume</a>
           <a href="about.html">About Me</a>
           <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
             <span class="theme-toggle-icon" aria-hidden="true"></span>
@@ -29,14 +42,49 @@
         <p class="detail-kicker">Portfolio</p>
         <h1 class="detail-title">Selected technical content and knowledge design projects</h1>
         <p class="detail-lede">
-          A collection of documentation, localization, e-learning, knowledge management,
+          A collection of documentation, localization, learning experience design, knowledge management,
           research, and content architecture projects.
         </p>
 
         <section class="detail-grid" aria-label="Project list">
           <article class="detail-card">
-            <h2>Custom AI Knowledge Assistant</h2>
-            <p>A custom AI-based knowledge assistant designed to enhance documentation workflows.</p>
+            <h2>Learning Content Architecture for Argonos</h2>
+            <p>Designing and developing a learning content architecture for Argonos, a data management platform, to structure product knowledge and support clear learning paths.</p>
+            <div class="card-actions">
+              <span class="text-button disabled-button" aria-disabled="true">Coming soon</span>
+            </div>
+          </article>
+          <article class="detail-card">
+            <h2>Visual Storytelling for Learning with Figma Make</h2>
+            <p>Using Figma Make to create animations for learning videos that explain product concepts and workflows.</p>
+            <div class="card-actions">
+              <span class="text-button disabled-button" aria-disabled="true">Coming soon</span>
+            </div>
+          </article>
+          <article class="detail-card">
+            <h2>Building Interactive Product Guides with Claude Code</h2>
+            <p>Creating step-by-step interactive guides in simulated product environments with Claude Code, giving learners a space to practice product workflows.</p>
+            <div class="card-actions">
+              <span class="text-button disabled-button" aria-disabled="true">Coming soon</span>
+            </div>
+          </article>
+          <article class="detail-card">
+            <h2>Automating Learning Content Localization with Claude Code</h2>
+            <p>Using Claude Code to automate the localization of learning content and streamline the creation of multilingual learning resources.</p>
+            <div class="card-actions">
+              <span class="text-button disabled-button" aria-disabled="true">Coming soon</span>
+            </div>
+          </article>
+          <article class="detail-card">
+            <h2>Designing a Learning Video Production Workflow</h2>
+            <p>Developing a workflow for planning, creating, and editing learning videos, from initial concept to finished learning content.</p>
+            <div class="card-actions">
+              <span class="text-button disabled-button" aria-disabled="true">Coming soon</span>
+            </div>
+          </article>
+          <article class="detail-card">
+            <h2>Beyond Courses: Modular Learning in the LMS</h2>
+            <p>Organizing LMS content into modular resources, including FAQs, product tours, and troubleshooting guides, so learners can access the format that best supports the task at hand.</p>
             <div class="card-actions">
               <span class="text-button disabled-button" aria-disabled="true">Coming soon</span>
             </div>
@@ -68,7 +116,7 @@
           <article class="detail-card">
             <h2>From PDFs to Dynamic Learning</h2>
             <p>
-              This project transformed static PDFs into interactive, version-controlled e-learning
+              This project transformed static PDFs into interactive, version-controlled learning
               modules with SCORM export for LMS integration and improved content management.
             </p>
             <div class="card-actions">
@@ -126,16 +174,6 @@
             </div>
           </article>
           <article class="detail-card">
-            <h2>Usability & Video Tutorial Research</h2>
-            <p>
-              This college project focused on improving Prezi's user experience through custom video
-              tutorials designed to address common usability challenges.
-            </p>
-            <div class="card-actions">
-              <a class="text-button" href="projects.html">Learn more</a>
-            </div>
-          </article>
-          <article class="detail-card">
             <h2>Content Architecture Solution Project</h2>
             <p>
               This college project led to the Content Architecture Solution for RobotsMali, designed
@@ -163,7 +201,6 @@
           <h2 id="reach-title">Reach out</h2>
           <ul>
             <li><a href="mailto:hello@example.com">Email</a></li>
-            <li><a href="https://github.com/" target="_blank" rel="noreferrer">Github</a></li>
             <li><a href="https://www.linkedin.com/in/meryem-makrane-creutzer-316495186/" target="_blank" rel="noreferrer">Linkedin</a></li>
           </ul>
         </section>

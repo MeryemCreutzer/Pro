@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Apply the theme before styles load to prevent a light flash on navigation.
+      (() => {
+        let theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        try {
+          const savedTheme = localStorage.getItem("portfolio-theme");
+          if (savedTheme === "dark" || savedTheme === "light") theme = savedTheme;
+        } catch {}
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
     <title>Translation Memory Strategy | Meryem Makrane Creutzer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +30,7 @@
         <a class="brand" href="index.html">Meryem Makrane Creutzer</a>
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="photography.html">Photography</a>
+          <a href="resume.html">Resume</a>
           <a href="about.html">About Me</a>
           <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
             <span class="theme-toggle-icon" aria-hidden="true"></span>
@@ -77,12 +90,14 @@
           </article>
 
           <article class="detail-card">
-            <h2>Tools & Technologies</h2>
+            <h2>Skills &amp; Expertise</h2>
             <ul class="detail-list">
+              <li>Translation memory analysis</li>
+              <li>Terminology strategy</li>
               <li>Crowdin</li>
-              <li>DeepL</li>
-              <li>TMX processing and scripting approaches</li>
-              <li>Glossary and terminology management systems</li>
+              <li>TMX cleanup planning</li>
+              <li>Localization quality assurance</li>
+              <li>Machine translation integration planning</li>
             </ul>
           </article>
         </section>
@@ -180,17 +195,16 @@
           </article>
         </section>
 
-        <section class="case-story-grid" aria-label="Outcome">
+        <section class="case-story-grid" aria-label="Outcomes">
           <article class="detail-card wide-card">
-            <h2>Outcome</h2>
-            <p>
-              The work resulted in a clear step-by-step cleanup methodology, a scalable terminology
-              framework, and a foundation for AI-assisted translation workflows.
-            </p>
-            <p>
-              It also positioned the localization process for future improvements, including
-              LLM-based translation and QA workflows within Crowdin.
-            </p>
+            <h2>Outcomes</h2>
+            <p>The project turned specialist recommendations into an actionable localization plan:</p>
+            <ul class="detail-list">
+              <li>Defined a step-by-step methodology for cleaning translation memories in Crowdin.</li>
+              <li>Designed a terminology framework covering product vocabulary and preferred and forbidden terms.</li>
+              <li>Identified TMX processing approaches for cleanup beyond native tool capabilities.</li>
+              <li>Prepared a foundation for future machine translation and AI-assisted QA workflows.</li>
+            </ul>
           </article>
 
           <article class="detail-card">
@@ -214,7 +228,6 @@
           <h2 id="reach-title">Reach out</h2>
           <ul>
             <li><a href="mailto:hello@example.com">Email</a></li>
-            <li><a href="https://github.com/" target="_blank" rel="noreferrer">Github</a></li>
             <li><a href="https://www.linkedin.com/in/meryem-makrane-creutzer-316495186/" target="_blank" rel="noreferrer">Linkedin</a></li>
           </ul>
         </section>

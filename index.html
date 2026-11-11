@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Apply the theme before styles load to prevent a light flash on navigation.
+      (() => {
+        let theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        try {
+          const savedTheme = localStorage.getItem("portfolio-theme");
+          if (savedTheme === "dark" || savedTheme === "light") theme = savedTheme;
+        } catch {}
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
     <title>Meryem Makrane Creutzer | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +30,7 @@
         <a class="brand" href="index.html">Meryem Makrane Creutzer</a>
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="photography.html">Photography</a>
+          <a href="resume.html">Resume</a>
           <a href="about.html">About Me</a>
           <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
             <span class="theme-toggle-icon" aria-hidden="true"></span>
@@ -32,7 +45,7 @@
           </div>
 
           <h1>Meryem Makrane Creutzer</h1>
-          <p class="role">Product Learning Strategy & Development Lead</p>
+          <p class="role">Learning Experience Designer &amp; Developer</p>
           <p class="bio">
             Passionate about knowledge design, I create innovative solutions to enhance access and usability. Whether for internal teams, collaborators, or customers, I specialize in planning, organizing, and optimizing information to make it clear, actionable, and impactful.
 In essence, I am dedicated to making knowledge clear, actionable, and easy to access.
@@ -104,7 +117,6 @@ In essence, I am dedicated to making knowledge clear, actionable, and easy to ac
           <h2 id="reach-title">Reach out</h2>
           <ul>
             <li><a href="mailto:hello@example.com">Email</a></li>
-            <li><a href="https://github.com/" target="_blank" rel="noreferrer">Github</a></li>
             <li><a href="https://www.linkedin.com/in/meryem-makrane-creutzer-316495186/" target="_blank" rel="noreferrer">Linkedin</a></li>
           </ul>
         </section>

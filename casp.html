@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Apply the theme before styles load to prevent a light flash on navigation.
+      (() => {
+        let theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        try {
+          const savedTheme = localStorage.getItem("portfolio-theme");
+          if (savedTheme === "dark" || savedTheme === "light") theme = savedTheme;
+        } catch {}
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
     <title>CASP | Meryem Makrane Creutzer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +30,7 @@
         <a class="brand" href="index.html">Meryem Makrane Creutzer</a>
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="photography.html">Photography</a>
+          <a href="resume.html">Resume</a>
           <a href="about.html">About Me</a>
           <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
             <span class="theme-toggle-icon" aria-hidden="true"></span>
@@ -73,12 +86,14 @@
           </article>
 
           <article class="detail-card">
-            <h2>Key Features</h2>
+            <h2>Skills &amp; Expertise</h2>
             <ul class="detail-list">
-              <li>Intuitive navigation for educational resources</li>
-              <li>Multi-level structure: sections, classes, subclasses</li>
-              <li>Interactive guides for learning materials</li>
-              <li>Search and filtering for faster retrieval</li>
+              <li>User research &amp; requirements analysis</li>
+              <li>Content architecture &amp; taxonomy design</li>
+              <li>Google Drive &amp; Google Sites</li>
+              <li>Wireframing &amp; usability testing</li>
+              <li>XMind &amp; Adobe XD</li>
+              <li>Functional specifications &amp; user guides</li>
             </ul>
           </article>
         </section>
@@ -133,12 +148,14 @@
           </article>
 
           <article class="detail-card wide-card">
-            <h2>Outcome</h2>
-            <p>
-              The final solution centralized educational content, improved navigation, introduced
-              interactive learning materials, supported faster search and filtering, and provided
-              user guides to make onboarding easier for teachers and administrators.
-            </p>
+            <h2>Outcomes</h2>
+            <p>CASP brought scattered teaching materials into a structured resource hub:</p>
+            <ul class="detail-list">
+              <li>Centralized educational resources in a Google Drive and Google Sites framework.</li>
+              <li>Organized content into sections, classes, and subclasses with search and filtering.</li>
+              <li>Created interactive guides to help teachers navigate learning materials.</li>
+              <li>Delivered user guides and functional and structural specifications to support adoption and maintenance.</li>
+            </ul>
           </article>
         </section>
 
@@ -154,7 +171,7 @@
             </div>
           </article>
           <article class="detail-card">
-            <h2>Final Outcome</h2>
+            <h2>Project Preview</h2>
             <div class="embed-frame">
               <iframe
                 title="CASP - Outcome"
@@ -194,7 +211,6 @@
           <h2 id="reach-title">Reach out</h2>
           <ul>
             <li><a href="mailto:hello@example.com">Email</a></li>
-            <li><a href="https://github.com/" target="_blank" rel="noreferrer">Github</a></li>
             <li><a href="https://www.linkedin.com/in/meryem-makrane-creutzer-316495186/" target="_blank" rel="noreferrer">Linkedin</a></li>
           </ul>
         </section>
