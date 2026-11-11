@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Apply the theme before styles load to prevent a light flash on navigation.
+      (() => {
+        let theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        try {
+          const savedTheme = localStorage.getItem("portfolio-theme");
+          if (savedTheme === "dark" || savedTheme === "light") theme = savedTheme;
+        } catch {}
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
     <title>From PDFs to Dynamic Learning | Meryem Makrane Creutzer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +30,7 @@
         <a class="brand" href="index.html">Meryem Makrane Creutzer</a>
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="photography.html">Photography</a>
+          <a href="resume.html">Resume</a>
           <a href="about.html">About Me</a>
           <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
             <span class="theme-toggle-icon" aria-hidden="true"></span>
@@ -77,13 +90,15 @@
           </article>
 
           <article class="detail-card">
-            <h2>Key Features</h2>
+            <h2>Skills &amp; Expertise</h2>
             <ul class="detail-list">
-              <li>Modular content delivery with exercises and improved navigation</li>
-              <li>Dual output for LMS and web formats</li>
-              <li>SCORM-compliant output for Dokeos LMS</li>
-              <li>Localization readiness through Git and Crowdin</li>
-              <li>Feedback system for ideas, bug reports, and surveys</li>
+              <li>Modular learning content design</li>
+              <li>Information architecture &amp; navigation design</li>
+              <li>MadCap Flare</li>
+              <li>SCORM integration &amp; troubleshooting</li>
+              <li>HTML, CSS, JavaScript &amp; jQuery</li>
+              <li>Power Automate, Microsoft Forms &amp; Azure DevOps</li>
+              <li>Git &amp; Crowdin localization workflows</li>
             </ul>
           </article>
         </section>
@@ -150,18 +165,17 @@
           </article>
         </section>
 
-        <section class="case-story-grid" aria-label="Outcome">
+        <section class="case-story-grid" aria-label="Outcomes">
           <article class="detail-card wide-card">
-            <h2>Outcome</h2>
-            <p>
-              The project delivered a scalable, maintainable, and learner-friendly training system.
-              The modules are easier to navigate, interactive, feedback-enabled, SCORM-ready, and
-              aligned with corporate branding.
-            </p>
-            <p>
-              The system is also prepared for global localization, making it more sustainable for
-              multilingual deployments.
-            </p>
+            <h2>Outcomes</h2>
+            <p>The project delivered a modular learning system with two publication formats:</p>
+            <ul class="detail-list">
+              <li>Converted static training materials into navigable learning units with exercises.</li>
+              <li>Published web content for instructor-led learning and SCORM packages for Dokeos LMS.</li>
+              <li>Resolved SCORM tracking issues to support learner progress reporting.</li>
+              <li>Connected feedback submissions to Azure DevOps tickets through Power Automate.</li>
+              <li>Prepared content for multilingual maintenance through Git and Crowdin.</li>
+            </ul>
           </article>
 
           <article class="detail-card">
@@ -187,7 +201,7 @@
             </div>
           </article>
           <article class="detail-card">
-            <h2>Final Outcome</h2>
+            <h2>Project Preview</h2>
             <div class="embed-frame">
               <iframe
                 title="E-learning project outcome"
@@ -231,7 +245,6 @@
           <h2 id="reach-title">Reach out</h2>
           <ul>
             <li><a href="mailto:hello@example.com">Email</a></li>
-            <li><a href="https://github.com/" target="_blank" rel="noreferrer">Github</a></li>
             <li><a href="https://www.linkedin.com/in/meryem-makrane-creutzer-316495186/" target="_blank" rel="noreferrer">Linkedin</a></li>
           </ul>
         </section>

@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Apply the theme before styles load to prevent a light flash on navigation.
+      (() => {
+        let theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        try {
+          const savedTheme = localStorage.getItem("portfolio-theme");
+          if (savedTheme === "dark" || savedTheme === "light") theme = savedTheme;
+        } catch {}
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
     <title>Resume | Meryem Makrane Creutzer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +30,7 @@
         <a class="brand" href="index.html">Meryem Makrane Creutzer</a>
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="photography.html">Photography</a>
+          <a href="resume.html">Resume</a>
           <a href="about.html">About Me</a>
           <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
             <span class="theme-toggle-icon" aria-hidden="true"></span>
@@ -39,7 +52,7 @@
             <div class="resume-entry">
               <h3>Learning Experience Designer & Developer (LX Dev)</h3>
               <p class="resume-date">2025 - Present</p>
-              <p class="resume-place">Sinequa by ChapsVision</p>
+              <p class="resume-place">Argonos by ChapsVision</p>
               <p>In my current role, I design and create learning experiences that help users understand and effectively use ChapsVision's software solutions. I develop a range of learning materials, including interactive tutorials, video content, and structured documentation, all aimed at making complex technical concepts accessible and actionable.</p>
               <p>I work closely with product teams to ensure that learning content is aligned with user needs and product updates, and I continuously gather feedback to improve the learning experience. My goal is to empower users to get the most value out of the solutions, enhancing their ability to find insights and make informed decisions based on their data.</p>
             </div>
@@ -101,20 +114,16 @@
           <article class="detail-card resume-section">
             <h2>Notable Projects</h2>
             <div class="resume-entry compact-entry">
-              <h3>From PDFs to Dynamic Learning project</h3>
-              <p class="resume-date">In progress</p>
+              <h3><a class="resume-project-link" href="dynamic-learning.html">From PDFs to Dynamic Learning</a></h3>
             </div>
             <div class="resume-entry compact-entry">
-              <h3>Localization Process Optimization project</h3>
-              <p class="resume-date">In progress</p>
+              <h3><a class="resume-project-link" href="localization-process.html">Localization Process Optimization</a></h3>
             </div>
             <div class="resume-entry compact-entry">
-              <h3>Reengineering the Documentation Portal & Feedback System Project</h3>
-              <p class="resume-date">In progress</p>
+              <h3><a class="resume-project-link" href="docs-portal-feedback.html">Redesigning the Docs Portal &amp; Feedback System</a></h3>
             </div>
             <div class="resume-entry compact-entry">
-              <h3>Internal Knowledge Management project</h3>
-              <p class="resume-date">In progress</p>
+              <h3><a class="resume-project-link" href="internal-knowledge-management.html">Internal Knowledge Management</a></h3>
             </div>
             <div class="detail-actions">
               <a class="text-button" href="projects.html">View case studies</a>
@@ -122,7 +131,7 @@
           </article>
 
           <article class="detail-card resume-section">
-            <h2>Education & Certifications</h2>
+            <h2>Education</h2>
             <div class="resume-entry">
               <h3>Master's in Technical Documentation</h3>
               <p class="resume-date">2019 - 2021</p>
@@ -144,6 +153,7 @@
               <p class="resume-date">2017 - 2019</p>
               <p class="resume-place">School King Fahd of Translation</p>
               <div class="tag-list">
+                <span>Arabic–English–French</span>
                 <span>Localization</span>
                 <span>Terminology Management</span>
                 <span>Legal Translation</span>
@@ -151,6 +161,27 @@
               </div>
             </div>
 
+            <div class="resume-entry">
+              <h3>Bachelor of Arts - English Literature and Linguistics</h3>
+              <p class="resume-date">2013 - 2016</p>
+              <p class="resume-place">Mohamed First University, Oujda</p>
+              <div class="tag-list">
+                <span>Literary Criticism</span>
+                <span>Literary Theory</span>
+                <span>Textual Analysis</span>
+                <span>Cultural Studies</span>
+                <span>Linguistics</span>
+                <span>English Language Studies</span>
+                <span>Terminology</span>
+                <span>Language Teaching &amp; Pedagogy</span>
+                <span>Academic Writing</span>
+                <span>Research &amp; Critical Thinking</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="detail-card resume-section">
+            <h2>Certifications</h2>
             <div class="resume-entry">
               <h3>Responsive Web Design Certification</h3>
               <p class="resume-place">freeCodeCamp</p>
@@ -185,19 +216,63 @@
 
           <article class="detail-card resume-section">
             <h2>Skills & Tools</h2>
-            <ul class="detail-list columns-list">
-              <li>Project management tools: Jira, Azure DevOps, Microsoft Planner, Notion</li>
-              <li>AI: ChatGPT, Custom GPTs, Claude</li>
-              <li>Localization and translation</li>
-              <li>Product help creation: video tutorials, in-app help, online docs, e-learning</li>
-              <li>Knowledge management tools: SharePoint, Confluence, Notion, GitBook, Office suites</li>
-              <li>Feedback and metrics-driven documentation</li>
-              <li>Information architecture</li>
-              <li>Content strategy</li>
-              <li>User and academic research</li>
-              <li>Prompt engineering for generative AI</li>
-              <li>REST APIs</li>
-            </ul>
+            <div class="resume-skill-groups">
+              <section class="resume-skill-group">
+                <h3>Learning &amp; Content Design</h3>
+                <ul class="resume-skill-tags">
+                  <li>Information architecture</li>
+                  <li>Content strategy</li>
+                  <li>Video tutorials</li>
+                  <li>In-app help</li>
+                  <li>Online documentation</li>
+                </ul>
+              </section>
+              <section class="resume-skill-group">
+                <h3>Research &amp; Improvement</h3>
+                <ul class="resume-skill-tags">
+                  <li>User research</li>
+                  <li>Academic research</li>
+                  <li>Feedback analysis</li>
+                  <li>Metrics-driven documentation</li>
+                </ul>
+              </section>
+              <section class="resume-skill-group">
+                <h3>Localization &amp; Language</h3>
+                <ul class="resume-skill-tags">
+                  <li>Localization</li>
+                  <li>Translation</li>
+                  <li>Terminology management</li>
+                </ul>
+              </section>
+              <section class="resume-skill-group">
+                <h3>AI &amp; Automation</h3>
+                <ul class="resume-skill-tags">
+                  <li>ChatGPT</li>
+                  <li>Custom GPTs</li>
+                  <li>Claude</li>
+                  <li>Prompt engineering</li>
+                </ul>
+              </section>
+              <section class="resume-skill-group">
+                <h3>Project &amp; Workflow Management</h3>
+                <ul class="resume-skill-tags">
+                  <li>Jira</li>
+                  <li>Azure DevOps</li>
+                  <li>Microsoft Planner</li>
+                  <li>Notion</li>
+                </ul>
+              </section>
+              <section class="resume-skill-group">
+                <h3>Knowledge &amp; Technical Tools</h3>
+                <ul class="resume-skill-tags">
+                  <li>SharePoint</li>
+                  <li>Confluence</li>
+                  <li>GitBook</li>
+                  <li>Office suites</li>
+                  <li>REST APIs</li>
+                </ul>
+              </section>
+            </div>
           </article>
 
           <article class="detail-card resume-section">
@@ -217,7 +292,6 @@
           <h2 id="reach-title">Reach out</h2>
           <ul>
             <li><a href="mailto:hello@example.com">Email</a></li>
-            <li><a href="https://github.com/" target="_blank" rel="noreferrer">Github</a></li>
             <li><a href="https://www.linkedin.com/in/meryem-makrane-creutzer-316495186/" target="_blank" rel="noreferrer">Linkedin</a></li>
           </ul>
         </section>

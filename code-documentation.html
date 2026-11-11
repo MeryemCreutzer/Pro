@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Apply the theme before styles load to prevent a light flash on navigation.
+      (() => {
+        let theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        try {
+          const savedTheme = localStorage.getItem("portfolio-theme");
+          if (savedTheme === "dark" || savedTheme === "light") theme = savedTheme;
+        } catch {}
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
     <title>Code Documentation | Meryem Makrane Creutzer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +30,7 @@
         <a class="brand" href="index.html">Meryem Makrane Creutzer</a>
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="photography.html">Photography</a>
+          <a href="resume.html">Resume</a>
           <a href="about.html">About Me</a>
           <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
             <span class="theme-toggle-icon" aria-hidden="true"></span>
@@ -77,13 +90,13 @@
           </article>
 
           <article class="detail-card">
-            <h2>Project Goals</h2>
+            <h2>Skills &amp; Expertise</h2>
             <ul class="detail-list">
-              <li>Modernize SCADA Basic instruction display</li>
-              <li>Improve readability and code-oriented scanning</li>
-              <li>Introduce collapsible structured layouts</li>
-              <li>Create Flare-compatible styled topics</li>
-              <li>Explore Markdown-to-Flare generation workflows</li>
+              <li>Information architecture</li>
+              <li>Developer documentation design</li>
+              <li>MadCap Flare</li>
+              <li>HTML5, CSS &amp; jQuery</li>
+              <li>Markdown workflow prototyping</li>
             </ul>
           </article>
         </section>
@@ -147,18 +160,16 @@
           </article>
         </section>
 
-        <section class="case-story-grid" aria-label="Outcome">
+        <section class="case-story-grid" aria-label="Outcomes">
           <article class="detail-card wide-card">
-            <h2>Outcome</h2>
-            <p>
-              The redesigned model offered a significantly better developer experience, making
-              SCADA Basic instructions easier to read, reuse, and integrate into future tools.
-            </p>
-            <p>
-              Although the project was cut short due to my departure, the new model and workflow
-              provide a strong foundation for continuing the modernization of SCADA Basic language
-              support.
-            </p>
+            <h2>Outcomes</h2>
+            <p>The redesign established a reusable model for SCADA Basic documentation:</p>
+            <ul class="detail-list">
+              <li>Created structured instruction layouts with collapsible sections and code blocks.</li>
+              <li>Built reusable styling and topic components in MadCap Flare.</li>
+              <li>Prototyped a Markdown-to-Flare workflow for future developer contributions.</li>
+              <li>Left a foundation for continued modernization; the project ended before full implementation.</li>
+            </ul>
           </article>
 
           <article class="detail-card">
@@ -184,7 +195,7 @@
             </div>
           </article>
           <article class="detail-card">
-            <h2>Final Outcome</h2>
+            <h2>Project Preview</h2>
             <div class="embed-frame">
               <iframe
                 title="SCADA Basic project outcome"
@@ -205,7 +216,6 @@
           <h2 id="reach-title">Reach out</h2>
           <ul>
             <li><a href="mailto:hello@example.com">Email</a></li>
-            <li><a href="https://github.com/" target="_blank" rel="noreferrer">Github</a></li>
             <li><a href="https://www.linkedin.com/in/meryem-makrane-creutzer-316495186/" target="_blank" rel="noreferrer">Linkedin</a></li>
           </ul>
         </section>

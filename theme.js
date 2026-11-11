@@ -5,6 +5,7 @@ function applyTheme(theme) {
   const isDark = theme === "dark";
 
   document.documentElement.dataset.theme = theme;
+  document.documentElement.style.colorScheme = theme;
 
   if (themeButton) {
     themeButton.setAttribute("aria-pressed", String(isDark));
@@ -12,17 +13,18 @@ function applyTheme(theme) {
   }
 }
 
-const savedTheme = localStorage.getItem(storageKey);
-const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-
-applyTheme(savedTheme || preferredTheme);
+applyTheme(document.documentElement.dataset.theme);
 
 themeButton?.addEventListener("click", () => {
   const currentTheme = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
   const nextTheme = currentTheme === "dark" ? "light" : "dark";
 
-  localStorage.setItem(storageKey, nextTheme);
   applyTheme(nextTheme);
+  try {
+    localStorage.setItem(storageKey, nextTheme);
+  } catch {
+    // Keep the toggle working when browser storage is unavailable.
+  }
 });
 
 const photoLightbox = document.querySelector(".photo-lightbox");

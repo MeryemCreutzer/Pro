@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Apply the theme before styles load to prevent a light flash on navigation.
+      (() => {
+        let theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        try {
+          const savedTheme = localStorage.getItem("portfolio-theme");
+          if (savedTheme === "dark" || savedTheme === "light") theme = savedTheme;
+        } catch {}
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
     <title>Building an Owner-Managed Website | Meryem Makrane Creutzer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +30,7 @@
         <a class="brand" href="index.html">Meryem Makrane Creutzer</a>
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="photography.html">Photography</a>
+          <a href="resume.html">Resume</a>
           <a href="about.html">About Me</a>
           <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
             <span class="theme-toggle-icon" aria-hidden="true"></span>
@@ -73,13 +86,14 @@
           </article>
 
           <article class="detail-card">
-            <h2>Project Goals</h2>
+            <h2>Skills &amp; Expertise</h2>
             <ul class="detail-list">
-              <li>Create a simple website with Google Sites</li>
-              <li>Connect the website to a custom domain</li>
-              <li>Make editing manageable for the owner</li>
-              <li>Improve discoverability through Google Business Profile</li>
-              <li>Help visitors understand rooms, location, values, and booking options</li>
+              <li>User needs analysis</li>
+              <li>Website information architecture</li>
+              <li>Google Sites</li>
+              <li>Custom domain configuration</li>
+              <li>Google Business Profile</li>
+              <li>Designing for owner autonomy</li>
             </ul>
           </article>
         </section>
@@ -148,19 +162,16 @@
           </article>
         </section>
 
-        <section class="case-story-grid" aria-label="Outcome">
+        <section class="case-story-grid" aria-label="Outcomes">
           <article class="detail-card wide-card">
-            <h2>Outcome</h2>
-            <p>
-              The owner gained an online presence they could understand and update independently.
-              The website is available through an actual domain, while Google Business visibility
-              helped people discover the guesthouse and interact with it more easily.
-            </p>
-            <p>
-              The setup also gave the owner access to useful indicators, such as how people
-              interacted with the website and business listing, supporting better awareness of
-              online visibility and potential client interest.
-            </p>
+            <h2>Outcomes</h2>
+            <p>Midi 6 gained a web presence the owner could manage independently:</p>
+            <ul class="detail-list">
+              <li>Launched a Google Sites website connected to a custom domain.</li>
+              <li>Structured practical information around rooms, location, activities, and booking paths.</li>
+              <li>Supported local discoverability through Google Business Profile.</li>
+              <li>Made website and business listing interaction indicators accessible to the owner.</li>
+            </ul>
           </article>
 
           <article class="detail-card">
@@ -212,7 +223,6 @@
           <h2 id="reach-title">Reach out</h2>
           <ul>
             <li><a href="mailto:hello@example.com">Email</a></li>
-            <li><a href="https://github.com/" target="_blank" rel="noreferrer">Github</a></li>
             <li><a href="https://www.linkedin.com/in/meryem-makrane-creutzer-316495186/" target="_blank" rel="noreferrer">Linkedin</a></li>
           </ul>
         </section>

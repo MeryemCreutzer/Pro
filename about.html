@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Apply the theme before styles load to prevent a light flash on navigation.
+      (() => {
+        let theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        try {
+          const savedTheme = localStorage.getItem("portfolio-theme");
+          if (savedTheme === "dark" || savedTheme === "light") theme = savedTheme;
+        } catch {}
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
     <title>About | Meryem Makrane Creutzer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,12 +24,13 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="detail-page">
+  <body class="detail-page about-page">
     <div class="page-frame">
       <header class="site-header">
         <a class="brand" href="index.html">Meryem Makrane Creutzer</a>
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="photography.html">Photography</a>
+          <a href="resume.html">Resume</a>
           <a href="about.html">About Me</a>
           <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
             <span class="theme-toggle-icon" aria-hidden="true"></span>
@@ -26,28 +39,67 @@
       </header>
 
       <main class="detail-main">
-        <p class="detail-kicker">About Me</p>
-        <h1 class="detail-title">Learning designer with a visual, human-centered practice</h1>
-        <p class="detail-lede">
-          Write a fuller introduction here: what you care about, how you work,
-          what kinds of learning experiences you design, and what brought you to this field.
-        </p>
+        <section class="about-intro" aria-labelledby="about-title">
+          <div class="about-intro-copy">
+            <p class="detail-kicker">About Me</p>
+            <h1 class="detail-title" id="about-title">Making complexity understandable</h1>
+            <p class="about-role">Learning Experience Designer &amp; Developer</p>
+            <p class="detail-lede">
+              My work brings together learning design, technical communication, and product
+              strategy. I turn complex technical concepts into clear, structured learning
+              experiences that help people understand and use the products they work with.
+            </p>
+            <p class="about-intro-text">
+              Beyond individual resources, I build coherent learning paths and systems that
+              make knowledge easier to access, maintain, and grow.
+            </p>
+          </div>
+          <figure class="about-photo">
+            <img src="me.JPG" alt="Meryem Makrane Creutzer" />
+          </figure>
+        </section>
 
         <section class="detail-grid" aria-label="About sections">
           <article class="detail-card wide-card">
             <h2>Approach</h2>
             <p>
-              Describe your process, values, research habits, and how you turn complex
-              ideas into clear learning experiences.
+              I start by understanding the product, the people using it, and the problems
+              they need to solve. From there, I structure information and choose the formats
+              that best support understanding, practice, and everyday use.
+            </p>
+            <p>
+              Accuracy, intellectual honesty, and critical thinking guide my decisions.
+              I look for evidence, question assumptions, and pay attention to the details
+              that make an explanation both clear and trustworthy.
+            </p>
+            <p>
+              I enjoy taking ownership, experimenting with tools, and finding practical
+              ways to improve how work gets done. Automation interests me as a way to
+              build sustainable systems and create more room for thoughtful design.
             </p>
           </article>
           <article class="detail-card">
             <h2>Interests</h2>
-            <p>Learning, design, photography, storytelling, facilitation, and culture.</p>
+            <p>
+              My curiosity extends into history, science, philosophy, literature, and
+              technology. I enjoy exploring how things work and the reasoning behind
+              the explanations we accept.
+            </p>
+            <p>
+              Photography gives me another way to explore perspective, detail, and visual
+              storytelling. Across these interests, I care about both substance and
+              presentation: making ideas accessible while preserving their depth.
+            </p>
           </article>
-          <article class="detail-card">
-            <h2>Contact</h2>
-            <p>Use this space for location, availability, collaboration interests, or a short invitation.</p>
+          <article class="detail-card about-contact">
+            <h2>Let’s connect</h2>
+            <p>
+              Interested in learning design, product knowledge, or making complex information
+              easier to use? Let’s start a conversation.
+            </p>
+            <div class="card-actions">
+              <a class="text-button" href="https://www.linkedin.com/in/meryem-makrane-creutzer-316495186/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+            </div>
           </article>
         </section>
       </main>
@@ -57,7 +109,6 @@
           <h2 id="reach-title">Reach out</h2>
           <ul>
             <li><a href="mailto:hello@example.com">Email</a></li>
-            <li><a href="https://github.com/" target="_blank" rel="noreferrer">Github</a></li>
             <li><a href="https://www.linkedin.com/in/meryem-makrane-creutzer-316495186/" target="_blank" rel="noreferrer">Linkedin</a></li>
           </ul>
         </section>

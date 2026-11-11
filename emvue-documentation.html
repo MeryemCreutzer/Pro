@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Apply the theme before styles load to prevent a light flash on navigation.
+      (() => {
+        let theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        try {
+          const savedTheme = localStorage.getItem("portfolio-theme");
+          if (savedTheme === "dark" || savedTheme === "light") theme = savedTheme;
+        } catch {}
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
     <title>EmVue Documentation | Meryem Makrane Creutzer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +30,7 @@
         <a class="brand" href="index.html">Meryem Makrane Creutzer</a>
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="photography.html">Photography</a>
+          <a href="resume.html">Resume</a>
           <a href="about.html">About Me</a>
           <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
             <span class="theme-toggle-icon" aria-hidden="true"></span>
@@ -77,14 +90,14 @@
           </article>
 
           <article class="detail-card">
-            <h2>Documentation Scope</h2>
+            <h2>Skills &amp; Expertise</h2>
             <ul class="detail-list">
-              <li>How-to tutorials</li>
-              <li>Quickstarts</li>
-              <li>Concept topics</li>
-              <li>Reference topics</li>
-              <li>FAQs</li>
-              <li>In-app help support</li>
+              <li>Documentation strategy &amp; planning</li>
+              <li>Technical writing &amp; topic-based authoring</li>
+              <li>Subject matter expert interviews</li>
+              <li>Stakeholder review &amp; quality assurance</li>
+              <li>MadCap Flare &amp; Git</li>
+              <li>Release-aligned content management</li>
             </ul>
           </article>
         </section>
@@ -149,17 +162,16 @@
           </article>
         </section>
 
-        <section class="case-story-grid" aria-label="Outcome">
+        <section class="case-story-grid" aria-label="Outcomes">
           <article class="detail-card wide-card">
-            <h2>Outcome</h2>
-            <p>
-              The EmVue documentation suite now provides comprehensive support for users and
-              internal teams, making product adoption easier and more consistent.
-            </p>
-            <p>
-              The documentation has been well received by stakeholders and serves as a strong
-              foundation for future updates and iterations.
-            </p>
+            <h2>Outcomes</h2>
+            <p>EmVue gained a documentation suite supporting its first product releases:</p>
+            <ul class="detail-list">
+              <li>Delivered documentation for versions 1.0, 1.1, and 1.2.</li>
+              <li>Created tutorials, quickstarts, concepts, references, and FAQs for users and internal teams.</li>
+              <li>Provided content supporting in-app help.</li>
+              <li>Established a reviewed, version-controlled content foundation for future updates.</li>
+            </ul>
           </article>
 
           <article class="detail-card">
@@ -175,7 +187,7 @@
 
         <section class="case-embed-grid" aria-label="Interactive project embed">
           <article class="detail-card wide-card">
-            <h2>Final Outcome</h2>
+            <h2>Project Preview</h2>
             <div class="embed-frame">
               <iframe
                 title="EmVue project outcome"
@@ -215,7 +227,6 @@
           <h2 id="reach-title">Reach out</h2>
           <ul>
             <li><a href="mailto:hello@example.com">Email</a></li>
-            <li><a href="https://github.com/" target="_blank" rel="noreferrer">Github</a></li>
             <li><a href="https://www.linkedin.com/in/meryem-makrane-creutzer-316495186/" target="_blank" rel="noreferrer">Linkedin</a></li>
           </ul>
         </section>
