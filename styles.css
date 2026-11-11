@@ -481,6 +481,28 @@ p {
   border-radius: 8px;
 }
 
+.about-location {
+  display: grid;
+  gap: 5px;
+  margin-top: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  background: var(--page);
+  line-height: 1.4;
+}
+
+.about-location span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.about-location strong {
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+}
+
 .about-page .detail-card > p {
   margin: 0;
   line-height: 1.6;
