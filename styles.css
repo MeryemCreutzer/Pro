@@ -290,7 +290,8 @@ p {
 .project-image {
   display: block;
   width: 100%;
-  border-radius: 10px;
+  /* Scale the corner mask with the artwork to cover the baked-in dark corners. */
+  border-radius: 5.5% / 9.8%;
   overflow: hidden;
   transition:
     transform 180ms ease,
